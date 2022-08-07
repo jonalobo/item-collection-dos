@@ -6,11 +6,10 @@ import CartContext from '../context/CartContext';
 
 const ItemDetail = (props) => {
   const [btn, setBtn] = useState(true)
-  const {thumbnail,price,title,description} = props.producto
+  const {imageId,price,title,description,stock} = props.producto
 
   const {addItem} = useContext(CartContext)
 
-  console.log(props)
   function onAddEvent(n) {
     addItem({...props.producto, quantity: n}); 
 } 
@@ -24,7 +23,7 @@ const ItemDetail = (props) => {
         <div class="hero min-h-screen bg-base-100 itemdetail justify-between">
           <div class="hero-content flex-col lg:flex-row ajuste">
             <img
-              src={thumbnail}
+              src={imageId}
               class="max-w-sm rounded-lg shadow-2xl img"
             />
             <div>
@@ -35,7 +34,7 @@ const ItemDetail = (props) => {
               <h4 class="text-2xl font-bold text-center ">{price} $</h4>
               <div className="ajusteBtn">{btn}
                 {btn ? (<ItemCount 
-                stock={4}
+                stock={stock}
                 initial={1}
                 onAdd={(e)=>{
                   alert(`${e} productos ha sido agregado al carrito`)
