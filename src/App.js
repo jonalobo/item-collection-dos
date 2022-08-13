@@ -44,7 +44,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<ItemListContainer />} />
-              <Route path="category/:id" element={<ItemListContainer />} />
+              <Route path="category/:categoria" element={<ItemListContainer />} />
               <Route path="item/:id" element={<ItemDetailContainer />} />
               <Route path="cart" element={<Cart />} />
               <Route path="contacto" element={<Contacto />} />
