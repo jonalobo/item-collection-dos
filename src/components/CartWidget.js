@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../context/CartContext";
 const CartWidget = () => {
-
-  const { totalItems, totalPrice} = useContext(CartContext)
+  const { totalItems, totalPrice } = useContext(CartContext);
 
   return (
     <div className="navbar bg-base-100 flex-end">
@@ -39,7 +38,7 @@ const CartWidget = () => {
               <span className="text-info">Subtotal: ${totalPrice}</span>
               <div className="card-actions">
                 <button className="btn btn-primary btn-block">
-                  <Link to='cart'>Ver carrito</Link>
+                  <Link to="cart">Ver carrito</Link>
                 </button>
               </div>
             </div>

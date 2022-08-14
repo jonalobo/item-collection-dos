@@ -25,30 +25,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-/*Un solo documento de Firebase*/
-
 export const getDetailItem = (id) => {
-  const docRef = doc(db, "items", id); //referencia a el documento
+  const docRef = doc(db, "items", id);
   return getDoc(docRef);
 };
 
-/*Todos los doc de una coleccion*/
-
 export const getItems = () => {
-  const colRef = collection(db, "items"); // referencia a la collection
+  const colRef = collection(db, "items");
   const q = query(colRef);
   return getDocs(q);
 };
 
-/*Datos filtrados de una coleccion*/
-
 export const getItemsFiltered = (categ) => {
-  const colRef = query(collection(db, "items")); // referencia a la collection
+  const colRef = query(collection(db, "items"));
   const q = query(colRef, where("categoryId", "==", categ));
   return getDocs(q);
 };
-
-/*Orden de compra especifica*/
 
 export const getOrderById = (id) => {
   const docRef = doc(db, "orders", id);

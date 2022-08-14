@@ -1,23 +1,25 @@
-import React from 'react'
-import CartItem from './CartItem.js';
+import React from "react";
+import CartItem from "./CartItem.js";
 import { useContext } from "react";
-import { Link } from 'react-router-dom';
-import CartContext from '../context/CartContext';
-
+import { Link } from "react-router-dom";
+import CartContext from "../context/CartContext";
 
 function Cart() {
-
-  const { cart, clearAll, totalItems, totalPrice } = useContext(CartContext)
+  const { cart, clearAll, totalItems, totalPrice } = useContext(CartContext);
 
   return (
-
     <section>
-      {cart.length > 0 &&
+      {cart.length > 0 && (
         <div className="flex mx-auto w-8/12 mt-10 mb-10 font-bold">
-          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center shadow-xl">ITEMS IN CART: {totalItems}</div>
+          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center shadow-xl">
+            ITEMS IN CART: {totalItems}
+          </div>
           <div className="divider divider-horizontal"></div>
-          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center shadow-xl">TOTAL ${totalPrice}</div>
-        </div>}
+          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center shadow-xl">
+            TOTAL ${totalPrice}
+          </div>
+        </div>
+      )}
       <div className="flex flex-column flex-wrap gap-3 w-4/5 m-auto justify-around">
         {cart.map((item) => (
           <CartItem
@@ -27,21 +29,34 @@ function Cart() {
             quantity={item.quantity}
             id={item.id}
             key={item.id}
-          />))}
+          />
+        ))}
       </div>
 
-      <div className='mt-10 text-center'>
-        {cart.length > 0 ? <button className="btn btn-primary btn-block w-48" onClick={clearAll}>Vaciar</button>
-          :
+      <div className="mt-10 text-center">
+        {cart.length > 0 ? (
+          <button className="btn btn-primary btn-block w-48" onClick={clearAll}>
+            Vaciar
+          </button>
+        ) : (
           <Link to="../">
-            <h1>Carrito vacio</h1><button className="btn btn-primary btn-block w-48" onClick={clearAll}>COMPRAR PRODUCTOS</button></Link>}
-            <Link to="../checkout">
-              <button className="btn btn-primary btn-block w-48 mr-10">CheckOut</button>
-            </Link>
+            <h1>Carrito vacio</h1>
+            <button
+              className="btn btn-primary btn-block w-48"
+              onClick={clearAll}
+            >
+              COMPRAR PRODUCTOS
+            </button>
+          </Link>
+        )}
+        <Link to="../checkout">
+          <button className="btn btn-primary btn-block w-48 mr-10">
+            CheckOut
+          </button>
+        </Link>
       </div>
     </section>
-
-  )
+  );
 }
 
 export default Cart;

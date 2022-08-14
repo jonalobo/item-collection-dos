@@ -1,11 +1,10 @@
-import Item from '../components/Item'
+import Item from "../components/Item";
 
-const Itemlist = ({datos}) => {
-
+const Itemlist = ({ datos }) => {
   return (
     <>
-      <Item products={datos}/>
+      <Item products={datos} />
     </>
-  )
-}
-export default Itemlist
+  );
+};
+export default Itemlist;
