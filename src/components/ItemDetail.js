@@ -38,7 +38,6 @@ const ItemDetail = (props) => {
                     stock={stock}
                     initial={1}
                     onAdd={(e) => {
-                      alert(`${e} productos ha sido agregado al carrito`);
                       onAddEvent(e);
                       setBtn(false);
                     }}

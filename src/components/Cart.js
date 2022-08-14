@@ -31,10 +31,13 @@ function Cart() {
       </div>
 
       <div className='mt-10 text-center'>
-        {cart.length > 0 ? <button className="btn btn-primary btn-block w-48" onClick={clearAll}>CLEAR ALL</button>
+        {cart.length > 0 ? <button className="btn btn-primary btn-block w-48" onClick={clearAll}>Vaciar</button>
           :
           <Link to="../">
             <h1>Carrito vacio</h1><button className="btn btn-primary btn-block w-48" onClick={clearAll}>COMPRAR PRODUCTOS</button></Link>}
+            <Link to="../checkout">
+              <button className="btn btn-primary btn-block w-48 mr-10">CheckOut</button>
+            </Link>
       </div>
     </section>
 
